@@ -1,0 +1,26 @@
+# Old CA live build — reference only, not part of the new stack
+anything-extracted/
+
+# Node
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+/build/
+/.react-router/
+dist/
+
+# Environment variables — contains secrets, never commit
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

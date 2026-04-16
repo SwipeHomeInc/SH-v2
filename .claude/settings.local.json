@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(find:*)",
+      "Bash(powershell -Command \"Test-Path ''c:\\Users\\porte\\Downloads\\anything (1).zip''\")",
+      "Bash(powershell:*)",
+      "WebFetch(domain:www.swip3home.com)",
+      "Bash(grep -v \"^__create$\\\\|^api$\\\\|^components$\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
