@@ -267,23 +267,26 @@ lines.push("-- ── SWIPE CHECKS ───────────────
 lines.push("INSERT INTO swipe_checks (id, property_id, category, mode, answers_json, condition, condition_label, findings_json, summary_text, key_findings_json, gentle_guidance_json, recommended_contractor_type, suggested_timeframe, created_by_user_id, created_at, updated_at)");
 lines.push("VALUES");
 
+// Converts a value to a valid jsonb SQL literal.
+// Handles: already-valid JSON, comma-separated plain text, null.
+function toJsonb(val) {
+  if (!val) return "NULL";
+  const s = String(val).trim();
+  // Already valid JSON (array or object)
+  try { JSON.parse(s); return `'${s.replace(/'/g, "''")}'::jsonb`; } catch {}
+  // Plain comma-separated string → JSON array
+  const arr = s.split(",").map(i => i.trim()).filter(Boolean);
+  return `'${JSON.stringify(arr).replace(/'/g, "''")}'::jsonb`;
+}
+
 const checkRows = checks
   .filter(c => c.id && c.category)
   .map(c => {
     const answersJson = c.answers_json && c.answers_json !== "[object Object]"
-      ? `'${c.answers_json.replace(/'/g, "''")}'::jsonb`
+      ? toJsonb(c.answers_json)
       : "'{}'::jsonb";
-    const findingsJson = c.findings_json
-      ? `'${c.findings_json.replace(/'/g, "''")}'::jsonb`
-      : "NULL";
-    const keyFindings = c.key_findings_json
-      ? `'${c.key_findings_json.replace(/'/g, "''")}'::jsonb`
-      : "NULL";
-    const gentleGuidance = c.gentle_guidance_json
-      ? `'${c.gentle_guidance_json.replace(/'/g, "''")}'::jsonb`
-      : "NULL";
 
-    return `  (${escNum(c.id)}, ${escNum(c.property_id)}, ${esc(c.category)}, ${esc(c.mode || "lite")}, ${answersJson}, ${esc(c.condition)}, ${esc(c.condition_label)}, ${findingsJson}, ${esc(c.summary_text)}, ${keyFindings}, ${gentleGuidance}, ${esc(c.recommended_contractor_type)}, ${esc(c.suggested_timeframe)}, ${escNum(c.created_by_user_id)}, ${escTs(c.created_at)}, ${escTs(c.updated_at)})`;
+    return `  (${escNum(c.id)}, ${escNum(c.property_id)}, ${esc(c.category)}, ${esc(c.mode || "lite")}, ${answersJson}, ${esc(c.condition)}, ${esc(c.condition_label)}, ${toJsonb(c.findings_json)}, ${esc(c.summary_text)}, ${toJsonb(c.key_findings_json)}, ${toJsonb(c.gentle_guidance_json)}, ${esc(c.recommended_contractor_type)}, ${esc(c.suggested_timeframe)}, ${escNum(c.created_by_user_id)}, ${escTs(c.created_at)}, ${escTs(c.updated_at)})`;
   });
 
 lines.push(checkRows.join(",\n"));
