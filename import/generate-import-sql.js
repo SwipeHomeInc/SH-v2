@@ -102,10 +102,21 @@ lines.push("-- ── PROFILES ────────────────�
 lines.push("INSERT INTO profiles (id, name, email, role, created_at)");
 lines.push("VALUES");
 
-const profileRows = authUsers
-  .filter(u => u.id && u.email)
+// Deduplicate by email — keep the row with the lowest id
+const emailSeen = new Map();
+for (const u of authUsers.filter(u => u.id && u.email)) {
+  const emailKey = u.email.toLowerCase().trim();
+  const existing = emailSeen.get(emailKey);
+  if (!existing || parseInt(u.id) < parseInt(existing.id)) {
+    emailSeen.set(emailKey, u);
+  }
+}
+const dedupedUsers = Array.from(emailSeen.values()).sort((a, b) => parseInt(a.id) - parseInt(b.id));
+console.log(`  Deduplicated ${authUsers.filter(u=>u.id&&u.email).length} users → ${dedupedUsers.length} unique emails`);
+
+const profileRows = dedupedUsers
   .map(u =>
-    `  (${escNum(u.id)}, ${esc(u.name || u.email.split("@")[0])}, ${esc(u.email)}, ${esc(u.role || "user")}, ${escTs(u.emailVerified || "2025-12-01T00:00:00Z")})`
+    `  (${escNum(u.id)}, ${esc(u.name || u.email.split("@")[0])}, ${esc(u.email.toLowerCase().trim())}, ${esc(u.role || "user")}, ${escTs(u.emailVerified || "2025-12-01T00:00:00Z")})`
   );
 
 lines.push(profileRows.join(",\n"));

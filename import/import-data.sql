@@ -1,6 +1,6 @@
 -- ============================================================
 -- Swipe Home MVP — Data Import
--- Generated: 2026-04-16T23:08:20.120Z
+-- Generated: 2026-04-16T23:13:23.052Z
 -- Run this in the Supabase SQL editor
 -- ============================================================
 
@@ -28,13 +28,12 @@ VALUES
   (23, 'beetzeln', 'beetzeln@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (24, 'shs', 'shs@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (25, 'porterandhazelsdeli', 'porterandhazelsdeli@gmail.com', 'user', '2025-12-01T00:00:00Z'),
-  (26, 'jered', 'jered@swipehomeapp.com', 'admin', '2025-12-01T00:00:00Z'),
   (27, 'jdennis', 'jdennis@kw.com', 'user', '2025-12-01T00:00:00Z'),
   (28, 'bryan_clow', 'bryan_clow@sbcglobal.net', 'user', '2025-12-01T00:00:00Z'),
   (29, 'tyler_noehre', 'tyler_noehre@hotmail.com', 'user', '2025-12-01T00:00:00Z'),
   (30, 'rfahnlander', 'rfahnlander@hotmail.com', 'user', '2025-12-01T00:00:00Z'),
   (32, 'hazel', 'hazel@gmail.com', 'user', '2025-12-01T00:00:00Z'),
-  (33, 'Natertater1717', 'Natertater1717@gmail.com', 'user', '2025-12-01T00:00:00Z'),
+  (33, 'Natertater1717', 'natertater1717@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (40, 'test22', 'test22@test.com', 'user', '2025-12-01T00:00:00Z'),
   (41, 'andrew.hoyle5', 'andrew.hoyle5@icloud.com', 'user', '2025-12-01T00:00:00Z'),
   (42, 'test1', 'test1@test.com', 'user', '2025-12-01T00:00:00Z'),
@@ -43,10 +42,9 @@ VALUES
   (45, 'williambradley580', 'williambradley580@yahoo.com', 'user', '2025-12-01T00:00:00Z'),
   (46, 'tester1', 'tester1@tester.com', 'user', '2025-12-01T00:00:00Z'),
   (47, 'tester1', 'tester1@gmail.com', 'user', '2025-12-01T00:00:00Z'),
-  (48, 'Pleasefuckingwork', 'Pleasefuckingwork@gmail.com', 'user', '2025-12-01T00:00:00Z'),
-  (49, 'Jered', 'Jered@swipehomeapp.com', 'user', '2025-12-01T00:00:00Z'),
+  (48, 'Pleasefuckingwork', 'pleasefuckingwork@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (50, 'tester3', 'tester3@test.com', 'user', '2025-12-01T00:00:00Z'),
-  (51, 'F3arless11', 'F3arless11@gmail.com', 'user', '2025-12-01T00:00:00Z'),
+  (51, 'F3arless11', 'f3arless11@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (52, 'hannie10', 'hannie10@live.com', 'user', '2025-12-01T00:00:00Z'),
   (53, 'yo', 'yo@mama.com', 'user', '2025-12-01T00:00:00Z'),
   (54, 'tester55', 'tester55@test.com', 'user', '2025-12-01T00:00:00Z'),
@@ -57,7 +55,7 @@ VALUES
   (59, 'joypoop', 'joypoop@test.com', 'user', '2025-12-01T00:00:00Z'),
   (60, 'linewrkr', 'linewrkr@hotmail.com', 'user', '2025-12-01T00:00:00Z'),
   (61, 'jnjholdomgs4', 'jnjholdomgs4@gmail.com', 'user', '2025-12-01T00:00:00Z'),
-  (62, 'CARL', 'CARL@VISUALPNW.COM', 'user', '2025-12-01T00:00:00Z'),
+  (62, 'CARL', 'carl@visualpnw.com', 'user', '2025-12-01T00:00:00Z'),
   (63, 'wenderella325', 'wenderella325@yahoo.com', 'user', '2025-12-01T00:00:00Z'),
   (64, 'kdennis627', 'kdennis627@aol.com', 'user', '2025-12-01T00:00:00Z'),
   (65, 'Contractor User', 'contractor@example.com', 'user', '2025-12-01T00:00:00Z'),
@@ -73,7 +71,6 @@ VALUES
   (75, 'cjlowder13', 'cjlowder13@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (76, 'dmitchdcalf', 'dmitchdcalf@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (77, 'fake', 'fake@test.com', 'user', '2025-12-01T00:00:00Z'),
-  (78, 'natertater1717', 'natertater1717@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (79, 'tester', 'tester@testertest.com', 'user', '2025-12-01T00:00:00Z'),
   (80, 'archangelzak', 'archangelzak@gmail.com', 'user', '2025-12-01T00:00:00Z'),
   (81, 'tylergresham7', 'tylergresham7@gmail.com', 'user', '2025-12-01T00:00:00Z'),
